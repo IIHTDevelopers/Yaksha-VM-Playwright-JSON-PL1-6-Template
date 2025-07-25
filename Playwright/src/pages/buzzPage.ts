@@ -15,27 +15,20 @@ export default class buzzPage {
   private deleteConfirmation: Locator ;
   constructor(page: Page) {
     this.page = page;
-    this.buzzLink = page.locator('span.oxd-main-menu-item--name', { hasText: 'Buzz' });
-    this.deleteToggle = page.locator("(//button[@type='button'])[9]");
-    this.deleteButton = page.locator("//li[@class='orangehrm-buzz-post-header-config-item'][1]");
-    this.firstPostFooter = page.locator('div.orangehrm-buzz-post-footer').first();
-    this.deleteConfirmation = page.locator("//div[@class='orangehrm-modal-footer']/button[2]");
-    this.verifyCmnt = this.page.locator("//p[@class='oxd-text oxd-text--p oxd-text--toast-message oxd-toast-content-text']"); 
+    this.buzzLink = page.locator('', { hasText: '' });
+    this.deleteToggle = page.locator("");
+    this.deleteButton = page.locator("");
+    this.firstPostFooter = page.locator('').first();
+    this.deleteConfirmation = page.locator("");
+    this.verifyCmnt = this.page.locator(""); 
   }
 
 
 /**
  * Deletes the first post on the Buzz page and returns the confirmation message.
  */
-public async delete(): Promise<string> {
-  await this.buzzLink.click();
-  await this.deleteToggle.click();
-  await this.deleteButton.click();
-  await this.deleteConfirmation.click();
-  await this.page.waitForTimeout(2000);
-
-  const deleteconfirmText = await this.verifyCmnt.first().textContent();
-  return deleteconfirmText?.trim() || '';
+public async delete(): Promise<string> {  
+  return '';
 }
 
 }
