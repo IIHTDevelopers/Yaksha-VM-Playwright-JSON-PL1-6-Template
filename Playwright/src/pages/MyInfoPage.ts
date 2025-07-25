@@ -17,12 +17,12 @@ export class MyInfoPage {
   
   constructor(page: Page) {
     this.page = page;
-    this.firstName= page.locator("//input[@name='firstName']");
-    this.midName = page.locator("//input[@name='middleName']");
-    this.lastName = page.locator("//input[@name='lastName']");
-    this.saveBtn= page.locator("//button[@type='submit']");
-    this.downloadBtn = page.locator("(//i[@class='oxd-icon bi-download'])[1]");
-    this.Myinfo = page.locator("text=My Info");
+    this.firstName= page.locator("");
+    this.midName = page.locator("");
+    this.lastName = page.locator("");
+    this.saveBtn= page.locator("");
+    this.downloadBtn = page.locator("");
+    this.Myinfo = page.locator("");
   }
   
 
@@ -30,23 +30,7 @@ export class MyInfoPage {
  * Downloads the user info file from the My Info tab and returns the filename.
  */
 async downloadInfo(): Promise<string> {
-  await this.Myinfo.click();
-  await this.page.waitForTimeout(1500);
-  await this.downloadBtn.scrollIntoViewIfNeeded();
-//
-  const [download] = await Promise.all([
-    this.page.waitForEvent('download'),
-    this.downloadBtn.click(),
-  ]);
-
-  const parentDir = path.resolve(process.cwd(), 'downloadImage');
-  const fileName = download.suggestedFilename();
-  const savePath = path.join(parentDir, fileName);
-
-  await download.saveAs(savePath);
-  console.log(`File downloaded and saved to: ${savePath}`);
-
-  return fileName;
+  return "";
 }
 
 
@@ -54,16 +38,6 @@ async downloadInfo(): Promise<string> {
  * Fills in and saves user details (first, middle, last name) under the My Info tab.
  */
 async verifyUser() {
-  await this.Myinfo.click();
-  await this.page.waitForTimeout(2000);
-
-  await this.firstName.fill(data.VerifyUser.firstName);
-  await this.midName.fill(data.VerifyUser.midName);
-  await this.lastName.fill(data.VerifyUser.lastName);
-  await this.saveBtn.nth(0).click();
-
-  await this.page.waitForTimeout(2000);
-  await this.page.reload();
 }
 
 
