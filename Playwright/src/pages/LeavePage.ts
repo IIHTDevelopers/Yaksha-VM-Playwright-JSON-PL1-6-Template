@@ -8,10 +8,10 @@ export default class LeavePage {
   private leaveAssignMsg : Locator;
   constructor(page: Page) {
     this.page = page;
-    this.leaveAssignMsg= page.locator("//span[text()='Required']");
-    this.assignBtn= page.locator("//button[text()=' Assign ']");
-    this.assignLeaveTab= page.locator("//a[text()='Assign Leave']");
-    this.leave = page.locator("//ul[@class='oxd-main-menu']/li[3]");
+    this.leaveAssignMsg= page.locator("");
+    this.assignBtn= page.locator("");
+    this.assignLeaveTab= page.locator("");
+    this.leave = page.locator("");
   }
 
 
@@ -19,11 +19,7 @@ export default class LeavePage {
  * Triggers leave assignment without input and returns the required field error message.
  */
 async verifyLeaveField(): Promise<string> {
-  await this.leave.click();
-  await this.assignLeaveTab.click();
-  await this.assignBtn.click();
-
-  return await this.leaveAssignMsg.nth(0).textContent() ?? "";
+  return "";
 }
 
 
