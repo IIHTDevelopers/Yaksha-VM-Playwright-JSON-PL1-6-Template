@@ -64,7 +64,4 @@ async changeLanguage(){
 
 }
 
-function generateUniqueUsername(base: string = "TestUser"): string {
-  const uniqueSuffix = Math.floor(1000 + Math.random() * 9000); // 4-digit random number
-  return `${base}${uniqueSuffix}`;
-};
+
