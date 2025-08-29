@@ -147,7 +147,7 @@ const result=   await page.locator(`//div[contains(@class, 'row') and contains(.
  * 6. Assert that the color code matches the expected value using a helper.
  */
 
-test.only("TS-5 Verify Primary Colour of corporate branding could be changed", async ({ page }) => {
+test("TS-5 Verify Primary Colour of corporate branding could be changed", async ({ page }) => {
   await adminPage.primaryColor(); // returns the style string
  
   const actualStyle = await page.locator("//div[@class='oxd-color-input-preview']").nth(0).getAttribute("style");
@@ -338,6 +338,7 @@ async function assertSearchedEmpId(page: Page, expectedEmpId: string) {
   const displayedEmpId = await page.locator("//div[@class='oxd-table-card']//div[@role='cell']").nth(1).textContent();
   expect(displayedEmpId?.trim()).toBe(expectedEmpId);
 }
+
 
 
 
