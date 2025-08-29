@@ -25,17 +25,3 @@ async verifyLeaveField() {
   
 
 }
-const startDate = new Date("2025-01-01");
-const endDate = new Date("2025-12-31");
-
-//--------------------------------------------
-function getRandomDate(start: Date, end: Date): string {
-  const randomTime = start.getTime() + Math.random() * (end.getTime() - start.getTime());
-  const randomDate = new Date(randomTime);
-
-  // Format to YYYY-MM-DD
-  const year = randomDate.getFullYear();
-  const month = String(randomDate.getMonth() + 1).padStart(2, '0');
-  const day = String(randomDate.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
